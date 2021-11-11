@@ -8,12 +8,15 @@ const FormDetails = (props) => {
     }
 
     return(
+        
         <div>
             <h2>{details.name}</h2>
-            <p>{details.email}</p>
-            <p>{details.phoneNumber}</p>
+            <p>Email: {details.email}</p>
+            <p> Phone Number: {details.phoneNumber ? details.phoneNumber : `No phone number available`}</p>
         </div>
 
     )
 
 }
+
+export default FormDetails

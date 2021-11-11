@@ -5,13 +5,13 @@ const schema = yup.object().shape({
     name: yup
         .string()
         .min(3, 'Name must have a minimum of 3 characters')
-        .max(30, 'Name must have a maximum of 30 characters')
+        .max(40, 'Name must have a maximum of 40 characters')
         .trim()
         .required('Name is required for submission'),
     phoneNumber: yup
         .number('Phone number must be a 10 digit number')
-        .min(1000000000)
-        .max(9999999999),
+        .min(1000000000, 'Please enter the phone number as 10 digits. Do not include the country code or dashes' )
+        .max(9999999999, 'Please enter the phone number as 10 digits. Do not include the country code or dashes'),
     email: yup
         .string()
         .email('Valid email is required for submission')
@@ -23,8 +23,9 @@ const schema = yup.object().shape({
         .max(20, 'Password must have a maximum of 20 characters')
         .trim()
         .required('Name is required for submission'),
-    tos: yup.boolean(),
-
+    tos: yup
+        .boolean()
+        .oneOf([true], 'You must agree to the Terms of Service')
 });
 
 export default schema;

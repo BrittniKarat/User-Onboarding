@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export default function Form (props) {
   const { 
       values,
@@ -11,13 +10,13 @@ export default function Form (props) {
   } = props
 
   const onSubmit = e => {
-      e.preventDefault()
-      submit()
+      e.preventDefault();
+      submit();
   }
 
   const onChange = e => {
     const { name, value, checked, type } = e.target
-    const realValue = type === 'checked' ? checked : value;
+    const realValue = type === 'checkbox' ? checked : value;
     change(name, realValue)
   }
 
@@ -26,7 +25,7 @@ export default function Form (props) {
       <div>
         <h2>Sign Up</h2>
         <div className='errors'>{errors.name}</div>
-        <label> Name
+        <label> Name:
         <input
             type='text'
             name='name'
@@ -35,16 +34,16 @@ export default function Form (props) {
         />
         </label> 
         <div className='errors'>{errors.email}</div>
-        <label> Email
+        <label> Email:
         <input
-            type='text'
+            type='email'
             name='email'
             onChange={onChange}
             value={values.email} 
         />
         </label> 
         <div className='errors'>{errors.phoneNumber}</div>
-        <label> Phone Number
+        <label> Phone:  
         <input
             type='text'
             name='phoneNumber'
@@ -53,21 +52,21 @@ export default function Form (props) {
         />
         </label> 
         <div className='errors'>{errors.password}</div>
-        <label> Password
+        <label> Password: 
         <input
-            type='text'
+            type='password'
             name='password'
             onChange={onChange}
             value={values.password} 
         />
         </label> 
         <div className='errors'>{errors.tos}</div>
-        <label> Terms of Service
+        <label> Accept Terms of Service 
         <input
             type='checkbox'
             name='tos'
             onChange={onChange}
-            value={values.tos} 
+            checked={values.tos}
         />
         </label> 
         <button disabled={disabled}>Submit</button>
