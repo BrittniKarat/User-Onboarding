@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import './App.css';
 
 import Form from './components/Form';
-import FormDetails from './components/FormDetails'
+import FormDetails from './components/FormDetails';
 import schema  from './Validation/formSchema';
 
 
@@ -75,13 +75,14 @@ function App() {
           />
       </div>
       <h1> Users </h1>
-      {
-        users.map( user => {
+
+      {users.map( user => {
           return (
             <FormDetails key={user.name} details={user} />
           )
         })
       }
+      
     </div>
   );
 }

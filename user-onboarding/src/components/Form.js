@@ -69,7 +69,7 @@ export default function Form (props) {
             checked={values.tos}
         />
         </label> 
-        <button disabled={disabled}>Submit</button>
+        <button id='submit' disabled={disabled}>Submit</button>
       </div>
     </form>
   )
