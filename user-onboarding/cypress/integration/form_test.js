@@ -51,11 +51,11 @@ describe('Form App', () => {
             passwordInput().should('have.value', 'JustYourMother');
         })
 
-        it('TOS works', () => {
+        it('TOS works and is checkable', () => {
             tosInput().check();
         })
 
-        it('Submit functions', () => {
+        it('User can submit their information', () => {
             nameInput().type('Ricky Bobby');
             emailInput().type('shakeandbake@babeh.com');
             phoneInput().type('5554589850');
@@ -65,7 +65,42 @@ describe('Form App', () => {
         })
     })
 
-    
-
+    describe('If information is missing, submit button should not be validated', () => {
+        it('Missing name - Submit button disabled', () => {
+            emailInput().type('shakeandbake@babeh.com');
+            phoneInput().type('5554589850');
+            passwordInput().type('JustYourMother');
+            tosInput().check();
+            submitButton().should('be.disabled');
+        })
+        it('Missing email - Submit button disabled', () => {
+            nameInput().type('Ricky Bobby');
+            phoneInput().type('5554589850');
+            passwordInput().type('JustYourMother');
+            tosInput().check();
+            submitButton().should('be.disabled');
+        })
+        it('Missing phone number - Submit button disabled', () => {
+            nameInput().type('Ricky Bobby');
+            emailInput().type('shakeandbake@babeh.com');
+            passwordInput().type('JustYourMother');
+            tosInput().check();
+            submitButton().should('be.disabled');
+        })
+        it('Missing password - Submit button disabled', () => {
+            nameInput().type('Ricky Bobby');
+            emailInput().type('shakeandbake@babeh.com');
+            phoneInput().type('5554589850');
+            tosInput().check();
+            submitButton().should('be.disabled');
+        })
+        it('TOS not checked - Submit button disabled', () => {
+            nameInput().type('Ricky Bobby');
+            emailInput().type('shakeandbake@babeh.com');
+            phoneInput().type('5554589850');
+            passwordInput().type('JustYourMother');
+            submitButton().should('be.disabled');
+        })
+    })
 
 })

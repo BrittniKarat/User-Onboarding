@@ -76,13 +76,13 @@ function App() {
       </div>
       <h1> Users </h1>
 
-      {users.map( user => {
+      {users.map(user => {
           return (
             <FormDetails key={user.name} details={user} />
           )
         })
       }
-      
+
     </div>
   );
 }
