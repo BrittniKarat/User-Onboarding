@@ -48,7 +48,7 @@ function App() {
     }
     setUsers([...users, newUser]);
     axios.post(`https://reqres.in/api/users`, formValues)
-      .then(res => setUsers( ...users, res.data))
+      .then(res => setUsers( [...users, res.data]))
       .catch(err => console.error(err))
     setFormValues({
       name: '',

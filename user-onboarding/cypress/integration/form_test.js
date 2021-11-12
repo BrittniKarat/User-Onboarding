@@ -55,14 +55,6 @@ describe('Form App', () => {
             tosInput().check();
         })
 
-        it('User can submit their information', () => {
-            nameInput().type('Ricky Bobby');
-            emailInput().type('shakeandbake@babeh.com');
-            phoneInput().type('5554589850');
-            passwordInput().type('JustYourMother');
-            tosInput().check();
-            submitButton().click();
-        })
     })
 
     describe('If information is missing, submit button should not be validated', () => {
@@ -100,6 +92,17 @@ describe('Form App', () => {
             phoneInput().type('5554589850');
             passwordInput().type('JustYourMother');
             submitButton().should('be.disabled');
+        })
+    })
+
+    describe('User can submit if they fill all info', () => {
+        it('User can submit their information', () => {
+            nameInput().type('Ricky Bobby');
+            emailInput().type('shakeandbake@babeh.com');
+            phoneInput().type('5554589850');
+            passwordInput().type('JustYourMother');
+            tosInput().check();
+            submitButton().click();
         })
     })
 
